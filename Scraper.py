@@ -1,5 +1,5 @@
 """
-Soccer match results scraping object.
+Baseball Game results scraping object.
 """
 
 from bs4 import BeautifulSoup
@@ -7,7 +7,7 @@ from DbManager import DatabaseManager
 import json
 import re
 from selenium import webdriver
-from SoccerMatch import SoccerMatch
+from BaseballGame import BaseballGame
 
 class Scraper():
 
@@ -83,8 +83,9 @@ class Scraper():
                 # not presently supported
                 continue
             else:  # is a soccer match
-                this_match = SoccerMatch()
+                this_match = BaseballGame()
                 game_datetime_str = current_date_str + " " + self.get_time(row)
+                print(game_datetime_str)
                 this_match.set_start(game_datetime_str)
                 participants = self.get_participants(row)
                 this_match.set_teams(participants)

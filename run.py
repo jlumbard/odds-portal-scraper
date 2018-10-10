@@ -7,7 +7,7 @@ from os import listdir, sep
 from os.path import isfile, join
 from Scraper import Scraper
 
-soccer_match_path = "." + sep + "leagues" + sep + "soccer"
+soccer_match_path = "." + sep + "leagues" + sep + "baseball"
 
 initialize_db = True
 

@@ -29,7 +29,7 @@ class DatabaseManager():
             self.cursor.execute('''DROP TABLE IF EXISTS matches''')
             self.cursor.execute('''CREATE TABLE matches
                                     (league text, area text,
-                                    retrieved_from_url text, start_time integer,
+                                    retrieved_from_url text, start_time varchar(100),
                                     end_time integer, team1 text, team2 text,
                                     outcome text, team1_odds real,
                                     team2_odds real, draw_odds real)''')
@@ -50,8 +50,8 @@ class DatabaseManager():
         sql_str = "INSERT INTO matches VALUES ('"
         sql_str += league["league"] + "', '"
         sql_str += league["area"] + "', '"
-        sql_str += retrieved_from_url + "', "
-        sql_str += str(match.get_start_time_unix_int()) + ", "
+        sql_str += retrieved_from_url + "', '"
+        sql_str += str(match.get_start_time()) + "', "
         sql_str += str(match.get_end_time_unix_int()) + ", '"
         sql_str += match.get_team1_string() + "', '"
         sql_str += match.get_team2_string() + "', '"
